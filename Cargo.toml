@@ -1,0 +1,12 @@
+[package]
+name = "dag_viz"
+version = "0.1.0"
+authors = ["kyleheadley <kyle.headley@colorado.edu>"]
+
+[dependencies]
+glium = "*"
+cgmath = "*"
+glium_text = "*"
+image = "*"
+time = "*"
+rand = "0.3"

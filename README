@@ -1,0 +1,34 @@
+3D Graph visualization
+======================
+
+Description
+-----------
+This project displays a graph in 3D to the user, allowing them to navigate and get some connection data. See controls below. Hovering the mouse over an element displays that element's text in the bottom left. Clicking nodes or edges brings up a hud-graphic annotating incomming (right-click) or outgoing (left-click) graph elements.
+
+Focus
+-----
+Click elements to see a hud-display of incomming/outgoing pathways
+
+Work
+----
+Nodes and edges are rendered with per-pixel phong lighting with color textures. Navigation is in six degrees of freedom. Edges are generated to be between the two nodes they connect. Node selection is by a texture picker, holding the id of the element on the screen at that location. Element highlighting is by transparently rendering a larger version on top, and using a shader to animate the texture. The animation is based on screen coordinates to look like a HUD. Text descriptions are multi-line. All work was done in the rust language using the 'glium' library (and other minor ones), a thin OpenGL wrapper. Some code and ideas were taken from beginer-level online tutorials, but have been reworked to suit the purpose here.
+
+Progress
+--------
+The graph is currently randomly-generated, but is fully prepared to be read from a file. Each element can be any color and nodes can be in any location and any shape. Two shapes exist currently, but they are also prepared to be read from a file in that they only need standard descriptions. Textures are calculated (tested in earlier projects), but texture coordinates and images are currently 0.0 and white.
+
+Parameters
+----------
+In case you want more control than available below, there are some easily modified parameters at the top of the code 'main.rs', and in the highlighting shader 'hf_shader.glsl'. Both are commented as pereferences and are const values.
+
+Controls
+--------
+Esc, q            - quit
+arrow keys, z, x  - move camera (translate)
+wasdrf			  - aim camera (rotate)
+i                 - reset perspective
+m 				  - toggle light movement
+mouse hover 	  - select node or edge (see text bottom left)
+left-click	      - show outgoing connections
+right-click       - show incomming connections
+click background  - remove incoming/outgoing connections 
